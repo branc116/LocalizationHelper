@@ -10,7 +10,7 @@ namespace LocalizationHelper
         private string _fileContent;
         public LocalizeStringScanner(string fileName)
         {
-            _fileContent = fileName.IndexOf(".cs") != -1 ? System.IO.File.ReadAllText(fileName) : " ";
+            _fileContent = fileName.IndexOf(".cs") != -1 ? System.IO.File.ReadAllText(fileName, Encoding.UTF8) : " ";
         }
         public bool HasLocalizer()
         {

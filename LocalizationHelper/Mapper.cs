@@ -49,7 +49,9 @@ namespace LocalizationHelper
         
         public static T DeSeriXML<T>(this string filePath)
         {
+            //Console.WriteLine($"DeSeri {filePath}");
             XmlSerializer seri = new XmlSerializer(typeof(T));
+            
             T ret = default(T);
             using (Stream s = System.IO.File.Open(filePath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
             {

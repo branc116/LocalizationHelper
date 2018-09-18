@@ -97,12 +97,12 @@ namespace LocalizationHelper
                             if ((newNames.data?.Count() ?? names.data.Count()) > 0 || updatedCount != 0)
                             {
                                 Directory.CreateDirectory(curOut);
-                                Console.WriteLine($"Writing to: {Path.GetRelativePath(_outputRoot, outFile)}");
-                                seri.Serialize(File.Create(outFile, 4), names);
+                                //Console.WriteLine($"Writing to: {Path.GetRelativePath(_outputRoot, outFile)}");
+                                seri.Serialize(System.Xml.XmlWriter.Create(File.Create(outFile), new System.Xml.XmlWriterSettings { Encoding = Encoding.UTF8, Indent = true }), names);
                             }
                         }
-                        Console.WriteLine($"Done with: {file}");
-                        Console.WriteLine(new string('-', Console.WindowWidth));
+                        //Console.WriteLine($"Done with: {file}");
+                        //Console.WriteLine(new string('-', Console.WindowWidth));
                     }
                 }
             }

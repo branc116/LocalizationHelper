@@ -18,7 +18,7 @@ namespace LocalizationHelper
             var inDir = args[0];
             var outDir = args[1];
             var langs = args.Skip(2).ToArray();
-            var a = new ProjectCompiler(inDir, outDir, true, langs);
+            var a = new ProjectCompiler(inDir, outDir, false, langs);
             a.Start();
             
             var UnKnowns = new List<(string lang, string key)>(KnownValues.NotKnown.ToList().OrderByDescending(i => i.Value).Select(i => i.Key));
